@@ -2,13 +2,11 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  # I used a 32 bit box definition because my processor doesn't have VT-x capabilities
   config.vm.box = "precise32"
+  # This should all work for a 64 bit vm just by changing the 32 above and below to 64
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
   config.vm.hostname = "jenkins-vagrant.jdydev.com"
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network :private_network, ip: "192.168.33.10"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
